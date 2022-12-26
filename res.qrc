@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/tr">
+        <file>QtLanguage_ru.qm</file>
+    </qresource>
+    <qresource prefix="/ref">
+        <file>reference.txt</file>
+    </qresource>
+</RCC>
