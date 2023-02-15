@@ -31,6 +31,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QAction* sizeLab = toolBar->addWidget(ui->labelSize);
     QAction* boxSize = toolBar->addWidget(ui->sizeBox);
 
+    Q_UNUSED(comBox); Q_UNUSED(comBox2); Q_UNUSED(sizeLab); Q_UNUSED(boxSize);
+
     setStyleSheet("QMainWindow { background-color: white; }"
               "QPushButton { background-color: white; color: black;border-radius: 10px; font: bold 10px; min-width: 5em; padding: 3px;}"
               "QComboBox {background-color: white; color: black; border-radius: 5px; padding: 1px 4px 1px 3px; min-width: 3em;}"
@@ -151,7 +153,7 @@ void MainWindow::on_printing(){
         return;
     else {
         QWidget* widget = currentWindow->widget();
-        QTextEdit* textEdit = (QTextEdit*)widget;
+        QTextEdit* textEdit = dynamic_cast<QTextEdit*>(widget);
         if(textEdit!=nullptr)
         {
             textEdit->print(&printer);
@@ -178,7 +180,7 @@ void MainWindow::on_saveButton_clicked()
     QFile file(path);
     if(file.open(QIODevice::WriteOnly)){
         QWidget* widget = currentWindow->widget();
-        QTextEdit* textEdit = (QTextEdit*)widget;
+        QTextEdit* textEdit = dynamic_cast<QTextEdit*>(widget);
         if(textEdit!=nullptr)
         {
             QString text = textEdit->toPlainText();
@@ -296,7 +298,7 @@ void MainWindow::on_sizeBox_valueChanged(int arg1)
     if(currentWindow!=nullptr)
     {
         QWidget* widget = currentWindow->widget();
-        QTextEdit* textEdit = (QTextEdit*)widget;
+        QTextEdit* textEdit = dynamic_cast<QTextEdit*>(widget);
         textEdit->setFontPointSize(arg1);
     }
 }
