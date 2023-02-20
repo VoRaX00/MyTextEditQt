@@ -5,4 +5,14 @@
     <qresource prefix="/ref">
         <file>reference.txt</file>
     </qresource>
+    <qresource prefix="/icon">
+        <file>print.png</file>
+        <file>pen.png</file>
+        <file>docs.png</file>
+        <file>open_book.png</file>
+        <file>open.png</file>
+        <file>save.png</file>
+        <file>exit.png</file>
+        <file>ref.png</file>
+    </qresource>
 </RCC>
